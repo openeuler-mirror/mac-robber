@@ -1,0 +1,8 @@
+--- a/Makefile	2010-02-13 09:21:24.000000000 +0800
++++ b/Makefile	2023-04-14 15:49:50.471410185 +0800
+@@ -1,4 +1,4 @@
+-CC = gcc
++CC ?= gcc
+ 
+ GCC_DEBUG = -ggdb
+ GCC_OPT = -O3 -Wall -static

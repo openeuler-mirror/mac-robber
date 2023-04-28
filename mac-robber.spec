@@ -1,10 +1,11 @@
 Name:           mac-robber
 Version:        1.02
-Release:        18
+Release:        19
 Summary:        Tool to create a timeline of file activity for mounted file systems
 License:        GPLv2+
 URL:            http://sourceforge.net/projects/mac-robber/
 Source0:        http://downloads.sourceforge.net/mac-robber/mac-robber-1.02.tar.gz
+Patch0:         mac-robber-fix-cc.patch
 BuildRequires:  gcc
 
 %description
@@ -14,6 +15,7 @@ file systems.
 
 %prep
 %setup -q
+%patch0 -p1
 
 %build
 %make_build GCC_OPT="%{optflags}"
@@ -28,5 +30,8 @@ install -pm 0755 mac-robber %{buildroot}%{_bindir}
 %{_bindir}/mac-robber
 
 %changelog
+* Fri Apr 14 2023 Xiaoya Huang <huangxiaoya@iscas.ac.cn> - 1.02-19
+- Fix CC compiler support
+
 * Mon Dec 9 2019 openEuler Buildteam <buildteam@openeuler.org> - 1.02-18
 - Package init
